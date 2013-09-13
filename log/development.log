@@ -430,3 +430,35 @@ Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2013-09-14 03:55:55 +090
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 03:55:55 +0900
+
+
+Started GET "/photos" for 127.0.0.1 at 2013-09-14 04:07:23 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PhotosController#index as HTML
+  [1m[35mPhoto Load (0.2ms)[0m  SELECT "photos".* FROM "photos"
+  Rendered photos/index.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 143ms (Views: 110.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 04:07:24 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 04:07:24 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-14 04:07:24 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 04:07:24 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 04:07:24 +0900
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2013-09-14 04:07:24 +0900
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2013-09-14 04:07:24 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 04:07:24 +0900
