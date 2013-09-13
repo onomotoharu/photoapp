@@ -1,0 +1,432 @@
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePhotos (20130913184225)
+  [1m[35m (0.1ms)[0m  begin transaction
+DEPRECATION WARNING: Method `t.has_attached_file` in the migration has been deprecated and will be replaced by `t.attachment`. (called from block in change at /Users/onomotoharu/work/repos/photoapp/db/migrate/20130913184225_create_photos.rb:5)
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "photos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130913184225"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-14 03:49:31 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (3.1ms)
+Completed 200 OK in 42ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/photos" for 127.0.0.1 at 2013-09-14 03:49:36 +0900
+Processing by PhotosController#index as HTML
+  [1m[35mPhoto Load (0.2ms)[0m  SELECT "photos".* FROM "photos"
+  Rendered photos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 446ms (Views: 439.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2013-09-14 03:49:37 +0900
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2013-09-14 03:49:37 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 03:49:37 +0900
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 03:49:37 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 03:49:37 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-14 03:49:37 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 03:49:37 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 03:49:37 +0900
+
+
+Started GET "/photos/new" for 127.0.0.1 at 2013-09-14 03:49:39 +0900
+Processing by PhotosController#new as HTML
+  Rendered photos/_form.html.erb (77.8ms)
+  Rendered photos/new.html.erb within layouts/application (83.7ms)
+Completed 200 OK in 91ms (Views: 89.7ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/photos" for 127.0.0.1 at 2013-09-14 03:49:43 +0900
+Processing by PhotosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iyiWgVtAeZzv1QLQO8EiEWv7a+uxe8nKFXbPresBcMg=", "photo"=>{"photo"=>#<ActionDispatch::Http::UploadedFile:0x007fe910e69370 @tempfile=#<Tempfile:/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/RackMultipart20130914-60944-iwy8qi>, @original_filename="0.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"photo[photo]\"; filename=\"0.JPG\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Photo"}
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/020130914-60944-1m78hvb.JPG[0]'
+Command :: convert '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/020130914-60944-1m78hvb.JPG[0]' -auto-orient -resize "x50" -crop "50x50+12+0" +repage -gravity Center -crop 100x100+0+0 '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/020130914-60944-1m78hvb20130914-60944-dyj07k.png'
+Command :: file -b --mime '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/020130914-60944-1m78hvb20130914-60944-dyj07k.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/020130914-60944-1m78hvb.JPG[0]'
+Command :: convert '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/020130914-60944-1m78hvb.JPG[0]' -auto-orient -resize "x100" -crop "100x100+25+0" +repage '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/020130914-60944-1m78hvb20130914-60944-esyfnc.png'
+Command :: file -b --mime '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/020130914-60944-1m78hvb20130914-60944-esyfnc.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/020130914-60944-1m78hvb.JPG[0]'
+Command :: convert '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/020130914-60944-1m78hvb.JPG[0]' -auto-orient -resize "300x300>" '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/020130914-60944-1m78hvb20130914-60944-vd8o0e.png'
+Command :: file -b --mime '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/020130914-60944-1m78hvb20130914-60944-vd8o0e.png'
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `photo_content_type`
+  [1m[35mSQL (8.8ms)[0m  INSERT INTO "photos" ("created_at", "photo_content_type", "photo_file_name", "photo_file_size", "photo_updated_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 13 Sep 2013 18:49:44 UTC +00:00], ["photo_content_type", "image/jpeg"], ["photo_file_name", "0.JPG"], ["photo_file_size", 287800], ["photo_updated_at", Fri, 13 Sep 2013 18:49:43 UTC +00:00], ["updated_at", Fri, 13 Sep 2013 18:49:44 UTC +00:00]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/photos/1
+Completed 302 Found in 519ms (ActiveRecord: 11.5ms)
+
+
+Started GET "/photos/1" for 127.0.0.1 at 2013-09-14 03:49:44 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPhoto Load (0.3ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered photos/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 14ms (Views: 9.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 03:49:44 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 03:49:44 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 03:49:44 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 03:49:44 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-14 03:49:44 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 03:49:44 +0900
+
+
+Started GET "/photos" for 127.0.0.1 at 2013-09-14 03:49:45 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mPhoto Load (0.2ms)[0m  [1mSELECT "photos".* FROM "photos"[0m
+  Rendered photos/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/photos" for 127.0.0.1 at 2013-09-14 03:51:57 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PhotosController#index as HTML
+  [1m[35mPhoto Load (0.2ms)[0m  SELECT "photos".* FROM "photos"
+  Rendered photos/index.html.erb within layouts/application (32.5ms)
+Completed 200 OK in 149ms (Views: 81.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 03:51:58 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 03:51:58 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 03:51:58 +0900
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2013-09-14 03:51:58 +0900
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2013-09-14 03:51:58 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 03:51:58 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 03:51:58 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-14 03:51:58 +0900
+
+
+Started GET "/photos" for 127.0.0.1 at 2013-09-14 03:52:30 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mPhoto Load (0.4ms)[0m  [1mSELECT "photos".* FROM "photos"[0m
+  Rendered photos/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 03:52:30 +0900
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2013-09-14 03:52:30 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 03:52:30 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 03:52:30 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 03:52:30 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-14 03:52:30 +0900
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2013-09-14 03:52:30 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 03:52:30 +0900
+
+
+Started GET "/photos/1/edit" for 127.0.0.1 at 2013-09-14 03:52:40 +0900
+Processing by PhotosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPhoto Load (0.4ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered photos/_form.html.erb (53.5ms)
+  Rendered photos/edit.html.erb within layouts/application (57.8ms)
+Completed 200 OK in 67ms (Views: 63.9ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/photos/1" for 127.0.0.1 at 2013-09-14 03:52:45 +0900
+Processing by PhotosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iyiWgVtAeZzv1QLQO8EiEWv7a+uxe8nKFXbPresBcMg=", "photo"=>{"photo"=>#<ActionDispatch::Http::UploadedFile:0x007fce744ca9b0 @tempfile=#<Tempfile:/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/RackMultipart20130914-60991-phz3t6>, @original_filename="1.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"photo[photo]\"; filename=\"1.JPG\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Photo", "id"=>"1"}
+  [1m[36mPhoto Load (0.2ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/120130914-60991-1of7wdj.JPG[0]'
+Command :: convert '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/120130914-60991-1of7wdj.JPG[0]' -auto-orient -resize "x50" -crop "50x50+12+0" +repage -gravity Center -crop 100x100+0+0 '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/120130914-60991-1of7wdj20130914-60991-f84cg0.png'
+Command :: file -b --mime '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/120130914-60991-1of7wdj20130914-60991-f84cg0.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/120130914-60991-1of7wdj.JPG[0]'
+Command :: convert '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/120130914-60991-1of7wdj.JPG[0]' -auto-orient -resize "x100" -crop "100x100+25+0" +repage '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/120130914-60991-1of7wdj20130914-60991-15r0fij.png'
+Command :: file -b --mime '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/120130914-60991-1of7wdj20130914-60991-15r0fij.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/120130914-60991-1of7wdj.JPG[0]'
+Command :: convert '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/120130914-60991-1of7wdj.JPG[0]' -auto-orient -resize "300x300>" '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/120130914-60991-1of7wdj20130914-60991-lb3nzc.png'
+Command :: file -b --mime '/var/folders/gz/3r9ztmzs5590qhlxz2ynzvt80000gn/T/120130914-60991-1of7wdj20130914-60991-lb3nzc.png'
+  [1m[36mSQL (5.2ms)[0m  [1mUPDATE "photos" SET "photo_file_name" = ?, "photo_file_size" = ?, "photo_updated_at" = ?, "updated_at" = ? WHERE "photos"."id" = 1[0m  [["photo_file_name", "1.JPG"], ["photo_file_size", 217658], ["photo_updated_at", Fri, 13 Sep 2013 18:52:45 UTC +00:00], ["updated_at", Fri, 13 Sep 2013 18:52:46 UTC +00:00]]
+[paperclip] deleting /Users/onomotoharu/work/repos/photoapp/public/system/photos/photos/000/000/001/original/0.JPG
+[paperclip] deleting /Users/onomotoharu/work/repos/photoapp/public/system/photos/photos/000/000/001/thumb/0.png
+[paperclip] deleting /Users/onomotoharu/work/repos/photoapp/public/system/photos/photos/000/000/001/medium/0.png
+[paperclip] deleting /Users/onomotoharu/work/repos/photoapp/public/system/photos/photos/000/000/001/large/0.png
+  [1m[35m (3.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/photos/1
+Completed 302 Found in 552ms (ActiveRecord: 8.9ms)
+
+
+Started GET "/photos/1" for 127.0.0.1 at 2013-09-14 03:52:46 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPhoto Load (0.2ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered photos/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 11ms (Views: 8.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 03:52:46 +0900
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2013-09-14 03:52:46 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 03:52:46 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 03:52:46 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-14 03:52:46 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 03:52:46 +0900
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2013-09-14 03:52:46 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 03:52:46 +0900
+
+
+Started GET "/photos" for 127.0.0.1 at 2013-09-14 03:52:47 +0900
+Processing by PhotosController#index as HTML
+  [1m[35mPhoto Load (0.2ms)[0m  SELECT "photos".* FROM "photos"
+  Rendered photos/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/photos/1" for 127.0.0.1 at 2013-09-14 03:52:53 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPhoto Load (0.2ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered photos/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/photos/1" for 127.0.0.1 at 2013-09-14 03:53:15 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPhoto Load (0.2ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered photos/show.html.erb within layouts/application (17.8ms)
+Completed 500 Internal Server Error in 23ms
+
+ActionView::Template::Error (undefined local variable or method `photo' for #<#<Class:0x007fce752099a0>:0x007fce759da0f8>):
+    3: <p>
+    4:   <strong>Photo:</strong>
+    5:   <!-- <%= @photo.photo %> -->
+    6:   <td><%= image_tag photo.photo.url(:large) %></td>
+    7: </p>
+    8: 
+    9: <%= link_to 'Edit', edit_photo_path(@photo) %> |
+  app/views/photos/show.html.erb:6:in `_app_views_photos_show_html_erb___858299339047226755_70262356625180'
+
+
+  Rendered /opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+  Rendered /opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (21.7ms)
+
+
+Started GET "/photos/1" for 127.0.0.1 at 2013-09-14 03:53:33 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPhoto Load (0.3ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered photos/show.html.erb within layouts/application (65.6ms)
+Completed 500 Internal Server Error in 72ms
+
+ActionView::Template::Error (undefined local variable or method `photo' for #<#<Class:0x007fce752099a0>:0x007fce780f5c50>):
+    3: <p>
+    4:   <strong>Photo:</strong>
+    5:   <!-- <%= @photo.photo %> -->
+    6:         <td><%= image_tag photo.photo.url(:medium) %></td>
+    7: 
+    8: </p>
+    9: 
+  app/views/photos/show.html.erb:6:in `_app_views_photos_show_html_erb___858299339047226755_70262377129320'
+
+
+  Rendered /opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+  Rendered /opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+  Rendered /opt/boxen/rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (21.0ms)
+
+
+Started GET "/photos/1" for 127.0.0.1 at 2013-09-14 03:53:44 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPhoto Load (0.2ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered photos/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 03:53:44 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 03:53:44 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 03:53:44 +0900
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2013-09-14 03:53:44 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 03:53:44 +0900
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2013-09-14 03:53:44 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-14 03:53:44 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 03:53:44 +0900
+
+
+Started GET "/photos/1" for 127.0.0.1 at 2013-09-14 03:53:54 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPhoto Load (0.2ms)[0m  [1mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered photos/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 03:53:54 +0900
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2013-09-14 03:53:54 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 03:53:54 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 03:53:54 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 03:53:54 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-14 03:53:54 +0900
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2013-09-14 03:53:54 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 03:53:54 +0900
+
+
+Started GET "/photos/1" for 127.0.0.1 at 2013-09-14 03:53:59 +0900
+Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPhoto Load (0.2ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered photos/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 03:53:59 +0900
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2013-09-14 03:53:59 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 03:53:59 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 03:53:59 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 03:53:59 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-14 03:53:59 +0900
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2013-09-14 03:53:59 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 03:53:59 +0900
+
+
+Started GET "/photos" for 127.0.0.1 at 2013-09-14 03:54:02 +0900
+Processing by PhotosController#index as HTML
+  [1m[36mPhoto Load (0.2ms)[0m  [1mSELECT "photos".* FROM "photos"[0m
+  Rendered photos/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/photos" for 127.0.0.1 at 2013-09-14 03:55:54 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PhotosController#index as HTML
+  [1m[35mPhoto Load (0.3ms)[0m  SELECT "photos".* FROM "photos"
+  Rendered photos/index.html.erb within layouts/application (29.6ms)
+Completed 200 OK in 146ms (Views: 113.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-14 03:55:55 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-14 03:55:55 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-14 03:55:55 +0900
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2013-09-14 03:55:55 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-14 03:55:55 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-14 03:55:55 +0900
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2013-09-14 03:55:55 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-14 03:55:55 +0900
